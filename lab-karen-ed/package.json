@@ -1,0 +1,14 @@
+{
+  "name": "lab-karen-ed",
+  "version": "1.0.0",
+  "description": "Binary trees",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ed",
+  "license": "MIT"
+}
