@@ -1,12 +1,21 @@
 'use strict'
 
-const TreeNode = require('../lib/binary-tree')
+const BinaryTree = require('../lib/binary-tree')
+const TreeNode = require('../lib/treeNode')
 
 describe('Binary-tree Module', function() {
-  describe('#Create objects', function() {
-    let treeNode = new TreeNode()
+  describe('#Create object', function() {
+    let binaryTree = new BinaryTree()
     it('should return an empty object', function() {
-      expect(treeNode).toBeInstanceOf(TreeNode)
+      expect(binaryTree).toBeInstanceOf(BinaryTree)
+    })
+  })
+  describe('#Insert', function() {
+    let one = new TreeNode(1)
+    let binaryTree = new BinaryTree()
+    binaryTree.root = one
+    it('should return the root of the tree', function() {
+      expect(binaryTree.root).toEqual({'left': null, 'right': null, 'value': 1})
     })
   })
 })
