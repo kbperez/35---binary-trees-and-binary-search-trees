@@ -58,22 +58,8 @@ class BST {
 
   isBalanced() {
     if(!this.root) return null;
-    this.maxDepth(this.root) - this.minDepth(this.root) < 2 ? 'balanced' : 'unbalanced';
+    return this.maxDepth(this.root) - this.minDepth(this.root) < 2 ? 'balanced' : 'unbalanced';
   }
 }
 
 module.exports = BST
-
-// bst.isBalanced();
-
-// let bst = new BST();
-// bst.insert(new TreeNode(5));
-// bst.insert(new TreeNode(2));
-// bst.insert(new TreeNode(8));
-// bst.insert(new TreeNode(16));
-
-// console.log(bst.find(8));
-// console.log(bst.find(16));
-// console.log(bst.find(100));
-
-
