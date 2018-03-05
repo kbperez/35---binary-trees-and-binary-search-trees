@@ -1,27 +1,21 @@
 'use strict';
 
-class TreeNode{
-  constructor(value,left=null,right=null){
-    this.value = value;
-    this.left = left;
-    this.right = right;
-  }
-}
+const TreeNode = require('./treeNode')
 
-class BST{
-  constructor(root=null){
+class BST {
+  constructor(root=null) {
     this.root = root;
   }
 
-  insert(nodeToInsert){
+  insert(nodeToInsert) {
     if(this.root === null)
       this.root = nodeToInsert;
     else
       this._insert(this.root,nodeToInsert);
   }
 
-  _insert(root,nodeToInsert){
-    if(nodeToInsert.value < root.value){
+  _insert(root,nodeToInsert) {
+    if(nodeToInsert.value < root.value) {
       // Vinicio - going left
       if(!root.left)
         root.left = nodeToInsert;
@@ -36,12 +30,12 @@ class BST{
     }
   }
 
-  find(value){
+  find(value) {
     return this._find(this.root,value);
 
   }
 
-  _find(root,value){
+  _find(root,value) {
     if(!root)
       return null;
     else if(root.value === value)
@@ -68,14 +62,18 @@ class BST{
   }
 }
 
-bst.isBalanced();
+module.exports = BST
 
-let bst = new BST();
-bst.insert(new TreeNode(5));
-bst.insert(new TreeNode(2));
-bst.insert(new TreeNode(8));
-bst.insert(new TreeNode(16));
+// bst.isBalanced();
 
-console.log(bst.find(8));
-console.log(bst.find(16));
-console.log(bst.find(100));
+// let bst = new BST();
+// bst.insert(new TreeNode(5));
+// bst.insert(new TreeNode(2));
+// bst.insert(new TreeNode(8));
+// bst.insert(new TreeNode(16));
+
+// console.log(bst.find(8));
+// console.log(bst.find(16));
+// console.log(bst.find(100));
+
+
