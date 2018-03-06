@@ -1,7 +1,5 @@
 'use strict';
 
-const TreeNode = require('./treeNode')
-
 class BST {
   constructor(root=null) {
     this.root = root;
