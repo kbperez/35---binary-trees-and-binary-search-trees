@@ -59,4 +59,13 @@ describe('Binary-search-tree Module', function() {
       expect(bst.find(100)).toEqual(null)
     })
   })
+  describe('#Invalid arguments', function() {
+    let bst = new BST()
+    it('should return null if no find value passed', function() {
+      expect(bst.find()).toEqual(null)
+    })
+    it('should return null if tree has no root', function() {
+      expect(bst.isBalanced()).toEqual(null)
+    })
+  })
 })
