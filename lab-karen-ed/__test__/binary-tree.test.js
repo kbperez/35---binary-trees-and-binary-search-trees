@@ -2,6 +2,7 @@
 
 const BinaryTree = require('../lib/binary-tree')
 const TreeNode = require('../lib/treeNode')
+require('jest');
 
 describe('Binary-tree Module', function() {
   describe('#Create object', function() {
