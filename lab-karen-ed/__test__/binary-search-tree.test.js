@@ -2,6 +2,7 @@
 
 const BST = require('../lib/binary-search-tree')
 const TreeNode = require('../lib/treeNode')
+require ('jest');
 
 describe('Binary-search-tree Module', function() {
   describe('#Create object', function() {
@@ -57,6 +58,14 @@ describe('Binary-search-tree Module', function() {
     bst.insert(new TreeNode(16))
     it('should traverse tree and return null if node not found', function() {
       expect(bst.find(100)).toEqual(null)
+    })
+  })
+  describe('#Remove', function() {
+    let bst = new BST()
+    bst.insert(new TreeNode(5))
+
+    it('should traverse tree and remove a node if found', function() {
+      expect(bst.remove(16)).toEqual(null)
     })
   })
   describe('#Invalid arguments', function() {
