@@ -106,51 +106,32 @@ class BST {
 
   //remove function
   remove(value) {
-    let parent = this._findParent(value);
-    this._remove(value, parent);
-    return 'done';
+    if (typeof value !== 'number' || !this.root) return null
+    return this._remove(this.root, value)
   }
 
-  _remove(value, parent) {
-    let current;
-    let direction;
-
-    //find node to remove and set direction
-    if(parent.right.value === value) {
-      current = parent.right;
-      direction = 'right';
-
-    } else {
-      current = parent.left;
-      direction = 'left';
-    }
-    //remove nodes without children
-    if (current.right === null && current.left === null) {
-      if (parent.right.value === value) {
-        parent.right = null;
-      } else {
-        parent.left = null;
+  _remove(node, value, parent) {
+  
+    switch (true) {
+    case value < node.value:
+      this._remove(node.left, value, node)
+      break
+    case value > node.value:
+      this._remove(node.right, value, node)
+      break
+    default:
+      // default case means we have found node to remove
+      if (node.left && node.right) {
+        node.value = this._findMinimum(node.right)
+        this._remove(node.right, node.value, node)
+      } else if (parent.left === node) {
+        parent.left = node.left ? node.left : node.right
+      } else if (parent.right === node) {
+        parent.right = node.left ? node.left : node.right
       }
+      break
     }
-
-    //remove node with one child
-    if(current.right === null) {
-      if (current.left !== null) {
-        parent[direction] = current.left;
-      }
-    }
-
-    if(current.leftt === null) {
-      if (current.right !== null) {
-        parent[direction] = current.right;
-      }
-    }
-    //
-    if (current.right !== null && current.left !== null) {
-      let newNode = this.chooseParent(current.left);
-      this.remove(newNode.value);
-      current.value = newNode.value;
-    }
+    return this.root
   }
 }
 

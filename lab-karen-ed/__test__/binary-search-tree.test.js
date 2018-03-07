@@ -63,9 +63,11 @@ describe('Binary-search-tree Module', function() {
   describe('#Remove', function() {
     let bst = new BST()
     bst.insert(new TreeNode(5))
-
-    it('should traverse tree and remove a node if found', function() {
-      expect(bst.remove(16)).toEqual(null)
+    bst.insert(new TreeNode(2))
+    bst.insert(new TreeNode(8))
+    bst.insert(new TreeNode(16))
+    it('should traverse tree and remove node 8', function() {
+      expect(bst.remove(8)).toEqual({'left': {'left': null, 'right': null, 'value': 2}, 'right': {'left': null, 'right': null, 'value': 16}, 'value': 5})
     })
   })
   describe('#Invalid arguments', function() {
