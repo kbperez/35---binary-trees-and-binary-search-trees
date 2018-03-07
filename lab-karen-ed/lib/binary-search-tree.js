@@ -70,17 +70,17 @@ class BST {
 
     } else if (root.value === val) {
       this.parent = root;
-      console.log('val', root.value, this.parent);
+
       return this.parent;
 
     } else if(root.value < val) {
       this.parent = root;
-      console.log('root right', this.parent);
+
       return this._findParent(root.right, val);
 
     } else {
       this.parent = root;
-      console.log('root left', this.parent);
+
       return this._findParent(root.left, val);
     }
   }
@@ -111,7 +111,7 @@ class BST {
   }
 
   _remove(node, value, parent) {
-  
+
     switch (true) {
     case value < node.value:
       this._remove(node.left, value, node)

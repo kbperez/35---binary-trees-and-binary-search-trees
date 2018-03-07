@@ -7,4 +7,4 @@ bst.insert(new TreeNode(6));
 
 console.log(bst);
 console.log(bst.root.value);
-console.log(bst.remove(5));
+console.log(bst.remove(6));
